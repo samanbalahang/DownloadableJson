@@ -132,7 +132,7 @@ Both methods work in all modern browsers. The Data URL method has slightly bette
 License
 MIT License - free to use in both personal and commercial projects.
 
-<p align="center"> <em>This project was created using <a href="https://www.deepseek.com" target="_blank">DeepSeek</a> technology</em> </p>
+<h1 align="center"> <em>This project was created using <a href="https://www.deepseek.com" target="_blank">DeepSeek</a> technology</em> </h1>
 
 This README.md includes:
 1. Clear explanation of both methods
