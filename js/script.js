@@ -1,4 +1,4 @@
-document.getElementById('downloadJsonBtn').addEventListener('click', function() {
+document.getElementById('firstWay').addEventListener('click', function() {
     // Your JSON data (can be an object or array)
     const jsonData = {
         name: "John Doe",
@@ -31,3 +31,22 @@ function downloadFile(content, fileName, contentType) {
         URL.revokeObjectURL(url);
     }, 100);
 }
+
+
+
+document.getElementById('firstWay').addEventListener("click",function(){
+    storageObj = {
+            name: "John Doe",
+            age: 30,
+            email: "john@example.com",
+    }
+    filename = "scene";
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storageObj));
+    var dlAnchorElem = document.createElement("a");
+    // var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href",     dataStr     );
+    dlAnchorElem.setAttribute("download", `${filename}.json`);
+    var body = document.querySelector("body");
+    body.append(dlAnchorElem);
+    dlAnchorElem.click();
+});
