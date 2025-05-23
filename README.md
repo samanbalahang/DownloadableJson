@@ -19,6 +19,10 @@ cd node_modules/client-side-json-exporter-sam
 ```
 
 open demo folder and use live server to run it in vscode
+<br>
+first create json
+<br>
+then you can read json from file
 
 
 
@@ -76,11 +80,17 @@ open demo folder and use live server to run it in vscode
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Methods Comparison</title>
+    <title>Document</title>
 </head>
 <body>
-    <button id="firstWay">Blob API Method</button>
-    <button id="secoundway">Data URL Method</button>
+    <button id="firstWay">firstWay Download Text File</button>
+
+    <button id="secoundway">secoundway Download Text File</button>
+    <form action="#">
+        <label for="jsonFileInput">readJsonFile</label>
+        <input type="file" id="jsonFileInput" accept=".json" />
+    </form>
+
     <script src="js/script.js"></script>
 </body>
 </html>
@@ -91,6 +101,7 @@ open demo folder and use live server to run it in vscode
 ```js
 // Blob API Method (firstWay)
 document.getElementById('firstWay').addEventListener('click', function() {
+    // Your JSON data (can be an object or array)
     const jsonData = {
         name: "John Doe",
         age: 30,
@@ -98,10 +109,14 @@ document.getElementById('firstWay').addEventListener('click', function() {
         hobbies: ["reading", "hiking", "coding"]
     };
     
+    // Convert to JSON string with pretty-printing (2-space indent)
     const jsonString = JSON.stringify(jsonData, null, 2);
+    
+    // Create and download the file
     downloadFile(jsonString, 'data.json', 'application/json');
 });
 
+// Reusable download function
 function downloadFile(content, fileName, contentType) {
     const blob = new Blob([content], { type: contentType });
     const url = URL.createObjectURL(blob);
@@ -112,30 +127,45 @@ function downloadFile(content, fileName, contentType) {
     document.body.appendChild(a);
     a.click();
     
+    // Cleanup
     setTimeout(() => {
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
     }, 100);
 }
 
-// Data URL Method (secoundway)
-document.getElementById('secoundway').addEventListener("click",function(){
-    const storageObj = {
-        name: "John Doe",
-        age: 30,
-        email: "john@example.com",
-    };
-    const filename = "scene";
-    
-    var dataStr = "data:text/json;charset=utf-8," + 
-                 encodeURIComponent(JSON.stringify(storageObj));
+
+
+document.getElementById('firstWay').addEventListener("click",function(){
+    storageObj = {
+            name: "John Doe",
+            age: 30,
+            email: "john@example.com",
+    }
+    filename = "scene";
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(storageObj));
     var dlAnchorElem = document.createElement("a");
-    dlAnchorElem.setAttribute("href", dataStr);
+    // var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href",     dataStr     );
     dlAnchorElem.setAttribute("download", `${filename}.json`);
-    document.body.appendChild(dlAnchorElem);
+    var body = document.querySelector("body");
+    body.append(dlAnchorElem);
     dlAnchorElem.click();
-    document.body.removeChild(dlAnchorElem);
 });
+
+
+  document.getElementById('jsonFileInput').addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const jsonContent = e.target.result;
+      const data = JSON.parse(jsonContent);
+      console.log(data); // Parsed JSON object
+    };
+
+    reader.readAsText(file); // Read file as text
+  });
 ```
 
 Recommendations

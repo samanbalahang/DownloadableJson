@@ -50,3 +50,17 @@ document.getElementById('firstWay').addEventListener("click",function(){
     body.append(dlAnchorElem);
     dlAnchorElem.click();
 });
+
+
+  document.getElementById('jsonFileInput').addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const jsonContent = e.target.result;
+      const data = JSON.parse(jsonContent);
+      console.log(data); // Parsed JSON object
+    };
+
+    reader.readAsText(file); // Read file as text
+  });
