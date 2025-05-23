@@ -192,5 +192,3 @@ This README.md includes:
 4. Usage recommendations
 5. Browser support information
 6. Proper Markdown formatting for GitHub
-
-You can copy this entire block and paste it directly into a README.md file in your project.
