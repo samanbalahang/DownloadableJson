@@ -2,6 +2,13 @@
 
 This project demonstrates two different methods to download JSON data as files using pure JavaScript.
 
+
+## 📦 Installation
+
+```
+npm install client-side-json-exporter-sam
+```
+
 ## Methods Demonstrated
 
 ### 1. Blob API Method (Recommended)
@@ -126,10 +133,10 @@ For large files: Always use the Blob API method
 
 For simple implementations: Data URL method is easier
 
-Browser Support
+## 🌐 Browser Support
 Both methods work in all modern browsers. The Data URL method has slightly better support in older browsers.
 
-License
+## 📜 License
 MIT License - free to use in both personal and commercial projects.
 
 <h1 align="center"> <em>This project was created using <a href="https://www.deepseek.com" target="_blank">DeepSeek</a> technology</em> </h1>
