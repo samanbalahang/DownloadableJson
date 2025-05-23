@@ -9,6 +9,20 @@ This project demonstrates two different methods to download JSON data as files u
 npm install client-side-json-exporter-sam
 ```
 
+## 🚀 How to Use
+
+```
+npm init
+npm install client-side-json-exporter-sam
+cd node_modules/client-side-json-exporter-sam
+
+```
+
+open demo folder and use live server to run it in vscode
+
+
+
+
 ## Methods Demonstrated
 
 ### 1. Blob API Method (Recommended)

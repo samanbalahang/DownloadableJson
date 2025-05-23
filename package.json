@@ -1,6 +1,6 @@
 {
     "name": "client-side-json-exporter-sam",
-    "version": "1.0.2",
+    "version": "1.0.3git",
     "description": "A lightweight utility for client-side file downloads using Blob API and Data URLs",
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
